@@ -1,0 +1,42 @@
+<form [formGroup]="workAddressForm" (ngSubmit)="submitWorkAddressForm()">
+    <div class="form-group">
+      <label for="addressLine1">Address Line 1</label>
+      <input type="text" class="form-control" id="addressLine1" formControlName="addressLine1" required>
+      <div *ngIf="workAddressForm?.get('addressLine1')?.invalid && workAddressForm?.get('addressLine1')?.touched" class="text-danger">
+        Address Line 1 is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="addressLine2">Address Line 2</label>
+      <input type="text" class="form-control" id="addressLine2" formControlName="addressLine2">
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" class="form-control" id="city" formControlName="city" required>
+      <div *ngIf="workAddressForm?.get('city')?.invalid && workAddressForm?.get('city')?.touched" class="text-danger">
+        City is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="province">Province</label>
+      <select class="form-control" id="province" formControlName="province" required>
+        <option value=""></option>
+        <option value="Alberta">Alberta</option>
+        <option value="British Columbia">British Columbia</option>
+        <option value="Manitoba">Manitoba</option>
+        <option value="New Brunswick">New Brunswick</option>
+        <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+        <option value="Northwest Territories">Northwest Territories</option>
+        <option value="Nova Scotia">Nova Scotia</option>
+        <option value="Nunavut">Nunavut</option>
+        <option value="Ontario">Ontario</option>
+        <option value="Prince Edward Island">Prince Edward Island</option>
+        <option value="Quebec">Quebec</option>
+        <option value="Saskatchewan">Saskatchewan</option>
+      </select>
+      <div *ngIf="workAddressForm?.get('province')?.invalid && workAddressForm?.get('province')?.touched" class="text-danger">
+        Province is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
